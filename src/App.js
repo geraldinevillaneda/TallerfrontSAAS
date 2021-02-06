@@ -1,26 +1,13 @@
 import React from 'react';
-import L from 'leaflet';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import logo from './logo.svg';
+import RenderPoints from './RenderPoint';
 import './App.css';
-import 'leaflet/dist/leaflet.css';
-import icono from 'leaflet/dist/images/marker-icon.png';
-import isombra from 'leaflet/dist/images/marker-shadow.png';
-import retina from 'leaflet/dist/images/marker-icon-2x.png';
-
-
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: retina,
-  iconUrl: icono,
-  shadowUrl: isombra,
-});
 
 const location = [4.08466, -76.19536];
 const locationPrueba = [4.08470, -76.19550];
 const zoom = 12;
 
 function App() {
+ 
   return (
     <div className="App">
       <MapContainer center={location} zoom={zoom}>
