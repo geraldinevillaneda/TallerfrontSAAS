@@ -11,15 +11,43 @@ const estacinesDeServicioTulua = {
 };
 
 
-function App() {
+class App extends React.Component
+{
+  constructor(props)
+  {
+    super(props);
+    this.state = {apiResponse: ''};
+  }
+  callAPI()
+  {
+    fetch("http://localhost:5000/")
+      .then(res => res.text())
+      .then(res => this.setState({apiResponse: res}));
+  }
+
+  componentWillMount()
+  {
+    this.callAPI();
+  }
  
-  return (
-    <div className="App">
-      <div>
-      <RenderPoints />
+  render()
+  {
+    return(
+      <div className="App">
+        <div>
+          <RenderPoints />
+        </div>
+        <div>
+          <p>
+            {this.state.apiResponse}
+          </p>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
+
 export default App;
+
+

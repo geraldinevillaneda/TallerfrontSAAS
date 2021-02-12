@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -7,7 +7,10 @@ import icono from 'leaflet/dist/images/marker-icon.png';
 import isombra from 'leaflet/dist/images/marker-shadow.png';
 import retina from 'leaflet/dist/images/marker-icon-2x.png';
 
+//importamos icono
+import {IconLocation} from './IconLocation'
 
+console.log({IconLocation});
 
 
 
@@ -17,19 +20,11 @@ class RenderPoints extends Component {
         points: []
     }
 
-    async componentDidMount() {
-        await axios.get('http://localhost:3000/get')
-            .then((res) => {
-                console.log(res);
-                this.setState({
-                    points: res.data.data
-                })
-            })
-    }
+
 
     render() {
         const zoom = 12;
-        const location = [4.08466, -76.19536];
+        const location = [4.08, -76.19];/* ['4.08', '-76.19']; *///* [{lat: "4.08466", lng:"-76.19536"}]; */
         delete L.Icon.Default.prototype._getIconUrl;
         L.Icon.Default.mergeOptions({
             iconRetinaUrl: retina,
@@ -44,9 +39,9 @@ class RenderPoints extends Component {
                         console.log(row);
                         return (
                             <div key={row.id}>
-                            <Marker position={[row.latitud_estacion, row.longitud_estacion]}>
+                            <Marker position={location} icon={IconLocation}>
                                 <Popup minWidth={90}>
-                                    {row.direccion_estacion}
+                                    {"Hola Mundo"}
                                 </Popup>
                             </Marker>
                             </div>
