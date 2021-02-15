@@ -1,25 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import {Helmet} from 'react-helmet';
 import {useHistory} from 'react-router-dom'
-import './login.css'
-import storage from '../../lib/storage'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserShield } from "@fortawesome/free-solid-svg-icons";
 
+
+import './login.css'
+import Header from '../../components/Header/index'
 
 export default function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useHistory();
 
-
+    const handleSubmit2 = (e) => {
+        e.preventDefault();
+        navigate.push('/crear/usuario')
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        //alert(islogged)
         const data = {
             nombre_usuario: username,
             clave_usuario: password
         }
-        console.log(data)
         fetch('http://localhost:5000/users/login', {
             method: 'POST',
             body: JSON.stringify(data),
@@ -35,7 +39,7 @@ export default function Login() {
                         token: result.succesfull,
                     }))
                     alert('Bienvenido  ' + result.done)
-                    navigate.push('/')
+                    navigate.push('/dashboard/overview')
                 }
                 else
                 {
@@ -51,14 +55,14 @@ export default function Login() {
 
     return (
         <>
-            <div className="wrapper fadeInDown">
+            <div className="wrapper fadeInDown contenedor">
                 <Helmet>
                     <title>Login|App</title>
                 </Helmet>
                 <div id="formContent">
-
-                    <div className="fadeIn first">
-                        <img src="logo512.png" id="icon" alt="User Icon" />
+                    <Header />
+                    <div className="fadeIn first iconLogin">
+                        <FontAwesomeIcon icon={faUserShield} className="me-1" size="9x"/>
                     </div>
 
                     <form onSubmit={handleSubmit}>
@@ -78,11 +82,11 @@ export default function Login() {
                             value={password} 
                             placeholder="password"
                         />
-                        <button>INICIAR SECCION</button>
+                        <button>INICIAR SESION</button>
                     </form>
 
                     <div id="formFooter">
-                        <a className="underlineHover" href="#">¿Olvido su Contraseña?</a>
+                        <a className="underlineHover" onClick={handleSubmit2}>CREAR USUARIO</a>
                     </div>
 
                 </div>

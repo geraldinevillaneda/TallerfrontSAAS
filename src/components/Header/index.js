@@ -1,55 +1,49 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
-import './header.css'
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignInAlt, faSignOutAlt, faTachometerAlt } from "@fortawesome/free-solid-svg-icons";
+import { Image, Button, Container, Navbar } from '@themesberg/react-bootstrap';
+import { HashLink } from 'react-router-hash-link';
+import {useHistory} from 'react-router-dom'
+
+import ReactHero from "../../assets/img/technologies/react-hero-logo.svg";
+
+
 
 export default function Header() {
     
     const variables = JSON.parse(sessionStorage.getItem('login'));
-    //const tamaño = Object.keys(variables).length;
-    //let islogged = true;
     let islogged = true;
 
     if(variables === null)
     {
         islogged = false
     }
-    else if(variables.token === null)
-    {
-        islogged = true
-    }
-    if(variables != null)
-    {
-        console.log(islogged, variables.token, variables);
+    
+    const navigator = useHistory()
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        sessionStorage.removeItem('login');
+        navigator.push('/')
     }
 
     return(
-            <nav className = 'navbar navbar-light bg-ligh gf-header'>
-                <a className='navbar-brand logoNavbar' href= '/' >
-                    <img src="logo192.png" widht='50' height='50' className="d-inline-block align-top" alt="Logo"/>
-                </a>
-                {
-                    islogged 
-                    ?<div className='lista'><ul className="navbar-nav botonHeader">
-                        <li className="nav-item active ">
-                            <Link to='/logout' >
-                          
-                                LOG OUT
-                            </Link>
-                        </li>
-                        <li className="nav-item active">
-                            <Link to='/registroGasolinera'>
-                                REGISTRAR GASOLINERA
-                            </Link>
-                        </li>
-                    </ul></div>
-                    :<div className='lista'><ul className="navbar-nav botonHeader" >
-                        <li className='nav-item active '>
-                            <Link to='/login'>
-                                LOG IN
-                            </Link>
-                        </li>
-                    </ul></div>
-                }
-            </nav>
+        <Navbar variant="dark" expand="lg" bg="dark" className="navbar-transparent navbar-theme-primary sticky-top">
+            <Container className="position-relative justify-content-between px-3">
+                <Navbar.Brand as={HashLink} to="/" className="me-lg-3 d-flex align-items-center">
+                    <Image src={ReactHero} />
+                    <span className="ms-2 brand-text d-none d-md-inline">Volt React</span>
+                </Navbar.Brand>
+
+                <div className="d-flex align-items-center">
+                    {islogged ?
+                        <div>
+                            <Button as={HashLink} to="/dashboard/overview" variant="outline-white" className="ms-3"><FontAwesomeIcon icon={faTachometerAlt} className="me-1" /></Button> 
+                            <Button as={HashLink}  variant="outline-white" className="ms-3" onClick={handleSubmit} ><FontAwesomeIcon icon={faSignOutAlt} className="me-1" /> Cerrar Sesión</Button> 
+                        </div>
+                        : <Button as={HashLink} to="/login" variant="outline-white" className="ms-3"><FontAwesomeIcon icon={faSignInAlt} className="me-1" /> Iniciar Sesión</Button> 
+                    }
+                </div>
+            </Container>
+        </Navbar>
     );
 }

@@ -1,5 +1,5 @@
 import L from 'leaflet'
-import icono from './icons/icon.svg'
+import icono from './assets/icons/icon.svg'
 
 export const IconLocation = L.icon(
     {

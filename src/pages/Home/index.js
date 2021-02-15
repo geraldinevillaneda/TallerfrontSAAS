@@ -1,9 +1,8 @@
 import React from 'react';
 import {Helmet} from 'react-helmet';
 
-import Header from '../../components/Header/index';
 import RenderPoints from '../../RenderPoint';
-import '../../App.css';
+import '../../styles/App.css';
 
 
 export default function Home ()
@@ -14,7 +13,6 @@ export default function Home ()
                 <Helmet>
                     <title> HOME || MAP</title>
                 </Helmet>
-                <Header />
                 <div>
                     <div>
                     <RenderPoints />
