@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect, useHistory } from "react-router-dom";
 import { Routes } from "../routes";
 
 // pages
@@ -8,6 +8,9 @@ import Login from "./Login/login"
 import CreateUserPage from './createUser/createUserPage'
 import Upgrade from "./Upgrade";
 import DashboardOverview from "./dashboard/DashboardOverview";
+import EditUser from './editUser'
+import ReadUser from './leerUsuario'
+
 import Transactions from "./Transactions";
 import Settings from "./Settings";
 import BootstrapTables from "./tables/BootstrapTables";
@@ -85,20 +88,32 @@ const RouteWithSidebar = ({ component: Component, ...rest }) => {
     localStorage.setItem('settingsVisible', !showSettings);
   }
 
+  const navigate = useHistory();
+  const variables = JSON.parse(sessionStorage.getItem('login'));
+  let islogged = true;
+
+  if(variables === null)
+  {
+      islogged = false
+  }
+
   return (
+    <div>
+    {islogged ? 
     <Route {...rest} render={props => (
       <>
         <Preloader show={loaded ? false : true} />
-        <Header />
         <Sidebar />
 
         <main className="content">
+          <Navbar />
           <Component {...props} />
           <Footer toggleSettings={toggleSettings} showSettings={showSettings} />
         </main>
       </>
     )}
-    />
+    /> : navigate.push('/')}
+    </div>
   );
 };
 
@@ -117,6 +132,8 @@ export default () => (
 
     {/* pages */}
     <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
+    <RouteWithSidebar exact path={Routes.EditUser.path} component={EditUser} />
+    <RouteWithSidebar exact path={Routes.ReadUser.path} component={ReadUser} />
     <RouteWithSidebar exact path={Routes.Upgrade.path} component={Upgrade} />
     <RouteWithSidebar exact path={Routes.Transactions.path} component={Transactions} />
     <RouteWithSidebar exact path={Routes.Settings.path} component={Settings} />

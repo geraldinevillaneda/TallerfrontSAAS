@@ -20,7 +20,7 @@ export default (props) => {
 
   return (
     <div>
-      { showSettings ? (
+  {/*     { showSettings ? (
         <Card className="theme-settings">
           <Card.Body className="pt-4">
             <Button className="theme-settings-close" variant="close" size="sm" aria-label="Close" onClick={() => { toggleSettings(false) }} />
@@ -52,7 +52,7 @@ export default (props) => {
               <span className="fw-bold h6"><FontAwesomeIcon icon={faCogs} className="me-1 fs-7" /> Settings</span>
             </Card.Body>
           </Card>
-        )}
+        )} */}
       <footer className="footer section py-5">
         <Row>
           <Col xs={12} lg={6} className="mb-4 mb-lg-0">
@@ -64,7 +64,7 @@ export default (props) => {
             </p>
           </Col>
           <Col xs={12} lg={6}>
-            <ul className="list-inline list-group-flush list-group-borderless text-center text-xl-right mb-0">
+            {/* <ul className="list-inline list-group-flush list-group-borderless text-center text-xl-right mb-0">
               <li className="list-inline-item px-0 px-sm-2">
                 <Card.Link href="https://themesberg.com/about" target="_blank">
                   About
@@ -85,7 +85,7 @@ export default (props) => {
                   Contact
               </Card.Link>
               </li>
-            </ul>
+            </ul> */}
           </Col>
         </Row>
       </footer>

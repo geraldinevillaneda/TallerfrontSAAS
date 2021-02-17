@@ -8,10 +8,13 @@ import { CounterWidget, CircleChartWidget, BarChartWidget, TeamMembersWidget, Pr
 import { PageVisitsTable } from "../../components/Tables";
 import { trafficShares, totalOrders } from "../../data/charts";
 
+import Gasolineras from '../../components/gasolineras'
+
 export default () => {
   return (
     <>
-      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+      <Gasolineras />
+{/*       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
         <Dropdown className="btn-toolbar">
           <Dropdown.Toggle as={Button} variant="primary" size="sm" className="me-2">
             <FontAwesomeIcon icon={faPlus} className="me-2" />New Task
@@ -39,9 +42,9 @@ export default () => {
           <Button variant="outline-primary" size="sm">Share</Button>
           <Button variant="outline-primary" size="sm">Export</Button>
         </ButtonGroup>
-      </div>
+      </div> */}
 
-      <Row className="justify-content-md-center">
+  {/*     <Row className="justify-content-md-center">
         <Col xs={12} className="mb-4 d-none d-sm-block">
           <SalesValueWidget
             title="Sales Value"
@@ -125,7 +128,7 @@ export default () => {
             </Col>
           </Row>
         </Col>
-      </Row>
+      </Row> */}
     </>
   );
 };

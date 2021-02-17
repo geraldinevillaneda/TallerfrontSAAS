@@ -6,6 +6,7 @@ import Header from '../../components/Header/index'
 
 import './userCreate.css'
 
+
 export default function CreateUserPage () {
     return(
         <>
@@ -14,12 +15,9 @@ export default function CreateUserPage () {
             </Helmet>
             <Header />
             <div className="wrapper fadeInDown">
-                {/* <div id="formContent" className="contenedor">
+                <div id="formContent" className="editarUsuario">
                     <CreateUser />
                 </div>
-                <div className="col-12 ">
-                    <button className="btn btn-primary boton divBoton" type="submit" >Crear Usuario</button>
-                </div> */}
             </div>
         </>
     );

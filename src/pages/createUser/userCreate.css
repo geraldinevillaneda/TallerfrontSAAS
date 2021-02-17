@@ -1,15 +1,33 @@
+.titulo {
+    color: black;
+    padding-bottom: 30px;;
+}
+
 .titulo, .formulario{
     margin-left: 70px;
+}
+
+#formContent .nuevoUsuario {
+    max-width: 1200px  !important;
+    width: 60% !important;
+    margin: 0px !important;
+}
+
+
+.editarUsuario{
+    max-width: 1200px  !important;
+    width: 70% !important;
+    margin: 0px !important;
 }
 
 .boton {
     margin-left: 320px;
 }
 
-.contenedor {
-   max-width: 1200px  !important;
-   width: 60% !important;
-   margin: 0px !important;
+.loginContenedor {
+    max-width: 1200px  !important;
+    width: 60% !important;
+    margin: 0px !important;
 }
 
 .labelForm {
@@ -23,8 +41,18 @@
     padding-right: 57px;
 }
 
-.divBoton {
+.boton {
     margin-left: 0px !important;
     margin-right: 0px !important;
     margin-top: 0px !important;
+}
+
+.boton:hover {
+    background-color: #52DAFB;
+}
+
+body
+{
+    min-height: 750px !important;
+    height: auto !important;
 }

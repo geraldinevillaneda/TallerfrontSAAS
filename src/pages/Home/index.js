@@ -1,7 +1,7 @@
 import React from 'react';
 import {Helmet} from 'react-helmet';
 
-import RenderPoints from '../../RenderPoint';
+import Gasolineras from '../../components/gasolineras'
 import '../../styles/App.css';
 
 
@@ -14,9 +14,7 @@ export default function Home ()
                     <title> HOME || MAP</title>
                 </Helmet>
                 <div>
-                    <div>
-                    <RenderPoints />
-                    </div>
+                    <Gasolineras />
                 </div>
             </div>
         </>

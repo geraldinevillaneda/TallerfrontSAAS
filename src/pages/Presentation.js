@@ -83,8 +83,8 @@ export default () => {
 
   return (
     <>
-      <Header />
-      {/* <Navbar variant="dark" expand="lg" bg="dark" className="navbar-transparent navbar-theme-primary sticky-top">
+    <Header />
+    {/*   <Navbar variant="dark" expand="lg" bg="dark" className="navbar-transparent navbar-theme-primary sticky-top">
         <Container className="position-relative justify-content-between px-3">
           <Navbar.Brand as={HashLink} to="#home" className="me-lg-3 d-flex align-items-center">
             <Image src={ReactHero} />
@@ -94,7 +94,7 @@ export default () => {
           <div className="d-flex align-items-center">
             <Navbar.Collapse id="navbar-default-primary">
               <Nav className="navbar-nav-hover align-items-lg-center">
-                {/* <Nav.Link as={HashLink} to="#features">Features</Nav.Link>
+                <Nav.Link as={HashLink} to="#features">Features</Nav.Link>
                 <Nav.Link as={HashLink} to="#pages">Pages</Nav.Link>
                 <Nav.Link as={HashLink} to="#folder" className="d-sm-none d-xl-inline">Folder Structure</Nav.Link>
                 <Nav.Link as={HashLink} to="#getting-started">Getting Started</Nav.Link>

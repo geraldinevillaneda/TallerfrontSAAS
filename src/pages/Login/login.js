@@ -15,7 +15,7 @@ export default function Login() {
 
     const handleSubmit2 = (e) => {
         e.preventDefault();
-        navigate.push('/crear/usuario')
+        navigate.push("/crear/usuario")
     }
 
     const handleSubmit = (e) => {
@@ -36,16 +36,18 @@ export default function Login() {
                 if(result.Auth)
                 {
                     sessionStorage.setItem('login', JSON.stringify({
-                        token: result.succesfull,
-                    }))
+                        datos: {
+                            token: result.succesfull,
+                            nombreUsuario: result.nombre_usuario,
+                            id: result.id,
+                            /* password: password */
+                        }
+                    }));
                     alert('Bienvenido  ' + result.done)
                     navigate.push('/dashboard/overview')
                 }
                 else
                 {
-                    sessionStorage.setItem('login', JSON.stringify({
-                        token: null,
-                    }))
                     alert(result.error)
                 }
                 console.log(JSON.parse(sessionStorage.getItem('login')))
@@ -55,7 +57,7 @@ export default function Login() {
 
     return (
         <>
-            <div className="wrapper fadeInDown contenedor">
+            <div className="wrapper fadeInDown contenedorLogin">
                 <Helmet>
                     <title>Login|App</title>
                 </Helmet>
