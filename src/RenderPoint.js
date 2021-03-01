@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/* import React, { Component } from 'react';
 //import axios from 'axios';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
@@ -25,7 +25,7 @@ class RenderPoints extends Component {
     render() {
         const zoom = 12;
         const location = [4.08, -76.19];/* ['4.08', '-76.19']; *///* [{lat: "4.08466", lng:"-76.19536"}]; */
-        delete L.Icon.Default.prototype._getIconUrl;
+        /*delete L.Icon.Default.prototype._getIconUrl;
         L.Icon.Default.mergeOptions({
             iconRetinaUrl: retina,
             iconUrl: icono,
@@ -54,4 +54,17 @@ class RenderPoints extends Component {
     }
 }
 
-export default RenderPoints;
+export default RenderPoints; */
+
+import React from 'react';
+
+import MapView from './components/MapView'
+
+
+function RenderPoint() {
+    return (
+        <MapView/>
+    );
+}
+
+export default RenderPoint;
