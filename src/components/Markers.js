@@ -1,5 +1,5 @@
 import React from 'react'
-import {Marker} from 'react-leaflet'
+import {Marker, Popup} from 'react-leaflet'
 import {IconLocation} from './IconLocation'
 
 
@@ -9,10 +9,20 @@ const Markers = (props)=> {
     const {data} = props;
 
     const markers = data.map((gasolinera, i) => (
-        /* {/* <Marker key={i} position = {{lat: gasolinera[i].latitud_estacion, lng: gasolinera[i].longitud_estacion}} icon={IconLocation}/> *//*} */
-        console.log(gasolinera[i].latitud_estacion)
+        /* console.log(gasolinera[i]) */
+        <Marker key={i} position = {[gasolinera.latitud_estacion, gasolinera.longitud_estacion]} icon={IconLocation}>
+            <Popup>
+                <p>
+                    Nombre: {gasolinera.nombre_estacion} <br/>
+                    Direccion: {gasolinera.direccion_estacion} <br/>
+                    Telefono: {gasolinera.telefono_estacion} <br/>
+                    Lactitud: {gasolinera.latitud_estacion} <br/>
+                    Longitud: {gasolinera.longitud_estacion} <br/>
+                </p>
+            </Popup>
+        </Marker>
     )); 
-
+    
     return markers;
 };
 

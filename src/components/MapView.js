@@ -13,6 +13,7 @@ fetch('http://localhost:5000/gasolineras',
 }).then((respuesta) => {
     respuesta.json().then((result) => {
         data.push(result.data)
+        data = data[0]
     })
 });
 
