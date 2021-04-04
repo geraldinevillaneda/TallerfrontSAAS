@@ -105,7 +105,7 @@ export default (props = {}) => {
               {/* <NavItem title="Settings" icon={faCog} link={Routes.Settings.path} /> */}
 
               <CollapsableNavItem eventKey="tables/estacion" title="Estaciones" icon={faGasPump}>
-                <NavItem title="Crear Estación" link={Routes.BootstrapTables.path} />
+                <NavItem title="Crear Estación" link={Routes.CreateEstation.path} />
                 <NavItem title="Consultar Estación" link={Routes.BootstrapTables.path} />
                 <NavItem title="Editar Estación" link={Routes.BootstrapTables.path} />
                 <NavItem title="Eliminar Estación" link={Routes.BootstrapTables.path} />

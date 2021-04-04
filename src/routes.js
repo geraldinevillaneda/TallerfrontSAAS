@@ -7,6 +7,7 @@ export const Routes = {
     DashboardOverview: { path: "/dashboard/overview" },
     EditUser : {path:"/editar/usuario"},
     ReadUser : {path:"/datos/usuario"},
+    CreateEstation: {path: "crear/Estacion"},
     Transactions: { path: "/transactions" },
     Settings: { path: "/settings" },
     Upgrade: { path: "/upgrade" },
