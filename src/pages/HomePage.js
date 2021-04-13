@@ -5,12 +5,15 @@ import { Routes } from "../routes";
 // pages
 import Presentation from "./Presentation";
 import Login from "./Login/login"
-import CreateUserPage from './createUser/createUserPage'
+import CreateUserPage from './User/createUser/createUserPage'
 import Upgrade from "./Upgrade";
 import DashboardOverview from "./dashboard/DashboardOverview";
-import EditUser from './editUser'
-import ReadUser from './leerUsuario'
-import CreateStation from './createStation/createStation'
+import EditUser from './User/editUser'
+import ReadUser from './User/leerUsuario'
+import CreateStation from './Gasolinera/createGasolinera'
+import SearchStation from './Gasolinera/searchGasolinera'
+import ReadStation from './Gasolinera/leerGasolinera'
+import EditStation from './Gasolinera/editGasolinera'
 
 import Transactions from "./Transactions";
 import Settings from "./Settings";
@@ -123,6 +126,8 @@ export default () => (
     <RouteWithLoader exact path={Routes.Presentation.path} component={Presentation} />
     <RouteWithLoader exact path={Routes.Login.path} component={Login} />
     <RouteWithLoader exact path={Routes.CreateUser.path} component={CreateUserPage} />
+
+
     <RouteWithLoader exact path={Routes.Signin.path} component={Signin} />
     <RouteWithLoader exact path={Routes.Signup.path} component={Signup} />
     <RouteWithLoader exact path={Routes.ForgotPassword.path} component={ForgotPassword} />
@@ -135,7 +140,11 @@ export default () => (
     <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
     <RouteWithSidebar exact path={Routes.EditUser.path} component={EditUser} />
     <RouteWithSidebar exact path={Routes.ReadUser.path} component={ReadUser} />
-    <RouteWithSidebar exact path={Routes.CreateEstation.path} component={CreateStation} />
+    <RouteWithSidebar exact path={Routes.CreateStation.path} component={CreateStation} />
+    <RouteWithSidebar exact path={Routes.SearchStation.path} component={SearchStation} />
+    <RouteWithSidebar exact path={Routes.ReadStation.path} component={ReadStation} />
+    <RouteWithSidebar exact path={Routes.EditStation.path} component={EditStation} />
+
     <RouteWithSidebar exact path={Routes.Transactions.path} component={Transactions} />
     <RouteWithSidebar exact path={Routes.Settings.path} component={Settings} />
     <RouteWithSidebar exact path={Routes.BootstrapTables.path} component={BootstrapTables} />
